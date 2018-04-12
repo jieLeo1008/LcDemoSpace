@@ -54,4 +54,24 @@ public class SocketServer {
 			}
 		}
 	}
+
+
+
+
+
+	public void startServerReplyListener(final BufferedReader reader){
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				String resopnse;
+				try {
+					while ((resopnse=reader.readLine())!=null){
+
+                    }
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+		}).start();
+	}
 }
