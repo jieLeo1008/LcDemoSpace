@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.zcx.helper.app.AppApplication;
 import com.zcx.helper.app.AppInit;
+import com.zcx.helper.http.Http;
 
 import iknow.android.utils.BaseUtils;
 
@@ -23,6 +24,8 @@ public class BaseApplication extends AppApplication {
 
         basePreferences =new BasePreferences("model");
 
+
+        Http.getInstance().allTimeout(5000);
 
         /**
          * 工具类
