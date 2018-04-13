@@ -32,6 +32,8 @@ public class SocketClient {
             //从控制台读数据
             inputReader = new BufferedReader(new InputStreamReader(System.in));
 
+            startServerReplyListener(reader);
+
             String inputContent;
 
             while (!(inputContent = inputReader.readLine()).equals("bye")) {
@@ -57,5 +59,26 @@ public class SocketClient {
         }
 
 
+
+
+    }
+
+
+    public void startServerReplyListener(final BufferedReader bufferedReader){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String response;
+                try {
+                    while ((response=bufferedReader.readLine())!=null){
+                        System.out.println(response);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+
+                }
+            }
+        }).start();
     }
 }
